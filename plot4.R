@@ -29,7 +29,7 @@ lines(data$Date, data$Sub_metering_3, col = "blue")
 
 ## Add legend
 legend("topright" , lty = c(1,1,1), col = c("black", "red", "blue"),
-       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty = "n", cex = 0.8)
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty = "n", cex = .95)
 
 plot(data$Date, data$Global_reactive_power, type = "line",ylab = "Global_reactive_power", xlab = "datetime")
 
