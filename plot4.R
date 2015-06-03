@@ -19,19 +19,21 @@ png("plot4.png", height=480, width=480, units = "px")
 # Build plot
 par(mfrow = c(2,2))
 
-plot(data$Date, data$Global_active_power, type = "line", ylab = "Global Active Power", xlab = "")
+with(data, {
+  plot(Date, Global_active_power, type = "line", ylab = "Global Active Power", xlab = "")
 
-plot(data$Date, data$Voltage, type = "line", ylab = "Voltage", xlab = "datetime")
+  plot(Date, Voltage, type = "line", ylab = "Voltage", xlab = "datetime")
 
-plot(data$Date, data$Sub_metering_1, type = "line", col = "black", ylab = "Energy sub metering", xlab = "")
-lines(data$Date, data$Sub_metering_2, col = "red") 
-lines(data$Date, data$Sub_metering_3, col = "blue")
+  plot(Date, Sub_metering_1, type = "line", col = "black", ylab = "Energy sub metering", xlab = "")
+  lines(Date, Sub_metering_2, col = "red") 
+  lines(Date, Sub_metering_3, col = "blue")
 
-## Add legend
-legend("topright" , lty = c(1,1,1), col = c("black", "red", "blue"),
-       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty = "n", cex = .95)
+  ## Add legend
+  legend("topright" , lty = c(1,1,1), col = c("black", "red", "blue"),
+         legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty = "n", cex = .95)
 
-plot(data$Date, data$Global_reactive_power, type = "line",ylab = "Global_reactive_power", xlab = "datetime")
+  plot(Date, Global_reactive_power, type = "line",ylab = "Global_reactive_power", xlab = "datetime")
+})
 
 ## Device off
 dev.off()

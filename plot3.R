@@ -16,9 +16,11 @@ Sys.setlocale("LC_TIME", "en_US.UTF-8")
 png("plot3.png", height=480, width=480, units = "px")
 
 ## Build plot
-plot(data$Date, data$Sub_metering_1, type = "line", col = "black", ylab = "Energy sub metering", xlab = "")
-lines(data$Date, data$Sub_metering_2, col = "red") 
-lines(data$Date, data$Sub_metering_3, col = "blue")
+with(data, {
+  plot(Date, Sub_metering_1, type = "line", col = "black", ylab = "Energy sub metering", xlab = "")
+  lines(Date, Sub_metering_2, col = "red") 
+  lines(Date, Sub_metering_3, col = "blue")
+})
 
 ## Add legend
 legend("topright" , lty = c(1,1,1), col = c("black", "red", "blue"),

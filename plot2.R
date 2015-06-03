@@ -16,7 +16,8 @@ Sys.setlocale("LC_TIME", "en_US.UTF-8")
 png("plot2.png", height=480, width=480, units = "px")
 
 ## Build plot
-plot(data$Date, data$Global_active_power, type = "line", ylab = "Global Active Power (kilowats)", xlab = "")
+with(data, plot(Date, Global_active_power, type = "line", ylab = "Global Active Power (kilowats)",
+                xlab = ""))
 
 ## Device off
 dev.off()

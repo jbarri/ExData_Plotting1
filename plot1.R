@@ -13,8 +13,9 @@ data <- filter(hpc, year(Date) == 2007 , month(Date) == 02, (day(Date) == 2 | da
 png("plot1.png", height=480, width=480, units = "px")
 
 ## Build plot
-hist(data$Global_active_power, col = "red",main = "Global Active Power",
-     xlab = "Global Active Power (kilowats)")
+
+with(data, hist(Global_active_power, col = "red",main = "Global Active Power",
+               xlab = "Global Active Power (kilowats)"))
 
 ## Device off
 dev.off()
