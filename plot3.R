@@ -13,7 +13,7 @@ data <- filter(hpc, year(Date) == 2007 , month(Date) == 02, (day(Date) == 2 | da
 Sys.setlocale("LC_TIME", "en_US.UTF-8")
 
 ## Open png device
-png("plot3.png")
+png("plot3.png", height=480, width=480, units = "px")
 
 ## Build plot
 plot(data$Date, data$Sub_metering_1, type = "line", col = "black", ylab = "Energy sub metering", xlab = "")
