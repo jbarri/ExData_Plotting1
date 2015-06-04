@@ -4,10 +4,12 @@ library(lubridate)
 ## Load data
 hpc <- read.csv("./household_power_consumption.txt",sep=";", na.strings="?", stringsAsFactors=FALSE)
 
-## Create Date and filter data
-hpc <- mutate(hpc, Date = paste (Date,Time))
-hpc$Date <- dmy_hms(hpc$Date)
-data <- filter(hpc, year(Date) == 2007 , month(Date) == 02, (day(Date) == 2 | day(Date) == 1))
+## Filter hpc and create data
+data <-
+  hpc %>%
+  filter(Date == "1/2/2007" | Date == "2/2/2007") %>%
+  mutate(Date = paste(Date, Time))
+data$Date <- dmy_hms(data$Date)
 
 ## Open png device
 png("plot1.png", height=480, width=480, units = "px")
